@@ -85,16 +85,36 @@ namespace coalesce
         {
             var doop = ((Button)sender).DataContext;
 
-            InputList woop = (InputList)doop;
+            InputList woop = doop as InputList;
+            if (woop != null)
+            {
+                var t = woop.Plugin.GetDetails();
 
-            var t = woop.Plugin.GetDetails();
-
-            string about = $@"Pluging: {woop.Name}
+                string about = $@"Pluging: {woop.Name}
 Author: {t.Author}
 Support: {t.SupportLink}
 Version: {t.Version}";
 
-            MessageBox.Show(this, about);
+                MessageBox.Show(this, about);
+            }
+
+
+            OutputList woop2 = doop as OutputList;
+            if (woop2 != null)
+            {
+                var t = woop2.Plugin.GetDetails();
+
+                string about = $@"Pluging: {woop2.Name}
+Author: {t.Author}
+Support: {t.SupportLink}
+Version: {t.Version}";
+
+                MessageBox.Show(this, about);
+            }
+
+
+
+
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -104,7 +124,7 @@ Version: {t.Version}";
             string t = selectedDestJoin.Replace("(", "_").Replace(")", "");
 
             BodyJoints petType = (BodyJoints)Enum.Parse(typeof(BodyJoints), t);
-            
+
             ((MainWindowViewModel)this.DataContext).Assign(petType);
         }
 
@@ -112,20 +132,43 @@ Version: {t.Version}";
         {
             ((MainWindowViewModel)this.DataContext).BindPosition();
         }
-        
+
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             Grid grid = button.Parent as Grid;
+
+
+
             InputList dc = grid.DataContext as InputList;
-            Debug.WriteLine(dc.Name);
-            ((MainWindowViewModel)this.DataContext).AddInput(dc);
+            if (dc != null)
+            {
+                Debug.WriteLine(dc.Name);
+                ((MainWindowViewModel)this.DataContext).AddInput(dc);
+            }
+
+            OutputList dc2 = grid.DataContext as OutputList;
+            if (dc2 != null)
+            {
+                Debug.WriteLine(dc2.Name);
+                ((MainWindowViewModel)this.DataContext).AddOutput(dc2);
+            }
+
+
+
+
             this.UpdateLayout();
             ((MainWindowViewModel)this.DataContext).AddedInputPlugins = ((MainWindowViewModel)this.DataContext).AddedInputPlugins;
+            ((MainWindowViewModel)this.DataContext).AddedOutputPlugins = ((MainWindowViewModel)this.DataContext).AddedOutputPlugins;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        { 
+        {
+        }
+
+        private void ListBox_OutputSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // throw new NotImplementedException();
         }
     }
 }

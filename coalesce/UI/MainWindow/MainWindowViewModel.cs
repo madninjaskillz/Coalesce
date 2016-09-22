@@ -8,6 +8,7 @@ using System.Timers;
 using System.Windows.Threading;
 using CoalesceInputPlugin;
 using CoalesceModifierPlugIn;
+using CoalesceOutputPlugin;
 using CoalesceTypes;
 using Timer = System.Timers.Timer;
 
@@ -38,11 +39,26 @@ namespace coalesce.UI.MainWindow
             set { Set(ref inputPlugins, value); }
         }
 
+        private List<OutputList> outputPlugins = new List<OutputList>();
+        public List<OutputList> OutputPlugins
+        {
+            get { return outputPlugins; }
+            set { Set(ref outputPlugins, value); }
+        }
+
         private ObservableCollection<InputList> addedInputPlugins = new ObservableCollection<InputList>();
         public ObservableCollection<InputList> AddedInputPlugins
         {
             get { return addedInputPlugins; }
             set { Set(ref addedInputPlugins, value); }
+        }
+
+
+        private ObservableCollection<OutputList> addedOutputPlugins = new ObservableCollection<OutputList>();
+        public ObservableCollection<OutputList> AddedOutputPlugins
+        {
+            get { return addedOutputPlugins; }
+            set { Set(ref addedOutputPlugins, value); }
         }
 
         private InputList selectedAddedInputPlugin;
@@ -110,19 +126,40 @@ namespace coalesce.UI.MainWindow
         
         public void Init()
         {
-            InputPlugins = new List<InputList>();
-            List<InputList> tempList = new List<InputList>();
-            foreach (var item in CoreSolids.InputPlugins)
             {
-
-                tempList.Add(new InputList
+                InputPlugins = new List<InputList>();
+                List<InputList> tempList = new List<InputList>();
+                foreach (var item in CoreSolids.InputPlugins)
                 {
-                    Id = item.Id,
-                    Name = item.Name
-                });
+
+                    tempList.Add(new InputList
+                    {
+                        Id = item.Id,
+                        Name = item.Name
+                    });
+                }
+
+                InputPlugins = tempList;
             }
 
-            InputPlugins = tempList;
+
+            {
+                OutputPlugins = new List<OutputList>();
+                List<OutputList> tempList = new List<OutputList>();
+                foreach (var item in CoreSolids.OutputPlugins)
+                {
+
+                    tempList.Add(new OutputList
+                    {
+                        Id = item.Id,
+                        Name = item.Name
+                    });
+                }
+
+                OutputPlugins = tempList;
+            }
+
+
             // Create a timer with a two second interval.
             Timer aTimer = new System.Timers.Timer(10);
             // Hook up the Elapsed event for the timer. 
@@ -166,7 +203,7 @@ namespace coalesce.UI.MainWindow
                                 CurrentSensorY = sens.Position.Y;
                                 CurrentSensorZ = sens.Position.Z;
 
-                                Debug.WriteLine($"{CurrentSensorX},{CurrentSensorY},{CurrentSensorZ}");
+//                                Debug.WriteLine($"{CurrentSensorX},{CurrentSensorY},{CurrentSensorZ}");
                             }
                         }
                     }
@@ -203,19 +240,36 @@ namespace coalesce.UI.MainWindow
 
         public void AddInput(InputList pluginToAdd)
         {
-                var plugin = CoreSolids.InputPlugins.First(t => t.Id == pluginToAdd.Id);
-                Debug.WriteLine(plugin);
-                ICoalesceInputPlugin newInstance = (ICoalesceInputPlugin)Activator.CreateInstance(plugin.Type);
-                newInstance.Initialise();
-                InputList newItem = new InputList
-                {
-                    Id = pluginToAdd.Id,
-                    Name = pluginToAdd.Name,
-                    InstanceId = Guid.NewGuid(),
-                    Plugin = newInstance
-                };
+            var plugin = CoreSolids.InputPlugins.First(t => t.Id == pluginToAdd.Id);
+            Debug.WriteLine(plugin);
+            ICoalesceInputPlugin newInstance = (ICoalesceInputPlugin)Activator.CreateInstance(plugin.Type);
+            newInstance.Initialise();
+            InputList newItem = new InputList
+            {
+                Id = pluginToAdd.Id,
+                Name = pluginToAdd.Name,
+                InstanceId = Guid.NewGuid(),
+                Plugin = newInstance
+            };
 
-                AddedInputPlugins.Add(newItem);
+            AddedInputPlugins.Add(newItem);
+        }
+
+        public void AddOutput(OutputList pluginToAdd)
+        {
+            var plugin = CoreSolids.OutputPlugins.First(t => t.Id == pluginToAdd.Id);
+            Debug.WriteLine(plugin);
+            ICoalesceOutputPlugin newInstance = (ICoalesceOutputPlugin)Activator.CreateInstance(plugin.Type);
+            newInstance.Initialise();
+            OutputList newItem = new OutputList
+            {
+                Id = pluginToAdd.Id,
+                Name = pluginToAdd.Name,
+                InstanceId = Guid.NewGuid(),
+                Plugin = newInstance
+            };
+
+            AddedOutputPlugins.Add(newItem);
         }
 
 
@@ -230,7 +284,7 @@ namespace coalesce.UI.MainWindow
             public Guid PluginId { get; set; }
             public Guid PluginInstance { get; set; }
             public int SensorId { get; set; }
-            public PlugInDetails PluginDetails { get; set; }
+            public CoalescePlugInDetails PluginDetails { get; set; }
         }
 
         public void Assign(BodyJoints destJoint)

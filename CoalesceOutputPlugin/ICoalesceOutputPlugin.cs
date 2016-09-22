@@ -7,9 +7,9 @@ using CoalesceTypes;
 
 namespace CoalesceOutputPlugin
 {
-    public interface ICoalesceOutputPlugin
+    public interface ICoalesceOutputPlugin : ICoalescePlugin
     {
-        OutputPlugInDetails GetDetails();
+        
 
         void Initialise();
         void ShowConfig();
@@ -21,12 +21,5 @@ namespace CoalesceOutputPlugin
         void AcceptPoll(List<JointPackage> packages);
     }
 
-    public class OutputPlugInDetails
-    {
-        public Guid Id { get; set; }
-        public string ShortName { get; set; }
-        public string Author { get; set; }
-        public string SupportLink { get; set; }
-        public double Version { get; set; }
-    }
+
 }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{35E7720E-AA0B-4C79-8C53-0FB0D3028D08}</ProjectGuid>
+    <ProjectGuid>{F5419518-6110-4456-AFF6-876029EE98C1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CoalesceInputOpenTrackUDPSender</RootNamespace>
-    <AssemblyName>CoalesceInputOpenTrackUDPSender</AssemblyName>
+    <RootNamespace>CoalesceOutputFaceTrackNoIR</RootNamespace>
+    <AssemblyName>CoalesceOutputFaceTrackNoIR</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\Plugins\Inputs\</OutputPath>
+    <OutputPath>..\bin\Debug\Plugins\Outputs\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoalesceInputPlugin\CoalesceInputPlugin.csproj">
-      <Project>{487F74A6-343B-4E95-A037-33C206B1F4B1}</Project>
-      <Name>CoalesceInputPlugin</Name>
+    <ProjectReference Include="..\CoalesceOutputPlugin\CoalesceOutputPlugin.csproj">
+      <Project>{77586ACA-7586-4BFE-925F-BE3A81FA4CFD}</Project>
+      <Name>CoalesceOutputPlugin</Name>
     </ProjectReference>
     <ProjectReference Include="..\CoalesceTypes\CoalesceTypes.csproj">
       <Project>{82E36CD5-BBF2-46AB-A44B-B9569EDA04E0}</Project>

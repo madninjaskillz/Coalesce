@@ -20,9 +20,9 @@ namespace CoalesceInputKinectV2
 
         KinectSensor sensor = null;
 
-        public PlugInDetails GetDetails()
+        public CoalescePlugInDetails GetDetails()
         {
-            return new PlugInDetails
+            return new CoalescePlugInDetails
             {
                 Author = "James Johnston",
                 Id = Guid.Parse("0a72e481-6976-48e8-94d8-28b1e3bb6f82"),

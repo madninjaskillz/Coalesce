@@ -52,4 +52,18 @@ namespace CoalesceTypes
         Foot_R,
         Foot_L,
     }
+
+    public class CoalescePlugInDetails
+    {
+        public Guid Id { get; set; }
+        public string ShortName { get; set; }
+        public string Author { get; set; }
+        public string SupportLink { get; set; }
+        public double Version { get; set; }
+    }
+
+    public interface ICoalescePlugin
+    {
+        CoalescePlugInDetails GetDetails();
+    }
 }

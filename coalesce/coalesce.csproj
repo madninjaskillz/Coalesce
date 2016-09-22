@@ -130,6 +130,10 @@
       <Project>{8A19F1A8-E2A7-466B-8587-4144E758673C}</Project>
       <Name>CoalesceModifierPlugIn</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CoalesceOutputPlugin\CoalesceOutputPlugin.csproj">
+      <Project>{77586ACA-7586-4BFE-925F-BE3A81FA4CFD}</Project>
+      <Name>CoalesceOutputPlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CoalesceTypes\CoalesceTypes.csproj">
       <Project>{82E36CD5-BBF2-46AB-A44B-B9569EDA04E0}</Project>
       <Name>CoalesceTypes</Name>

@@ -7,9 +7,9 @@ using CoalesceTypes;
 
 namespace CoalesceInputPlugin
 {
-    public interface ICoalesceInputPlugin
+    public interface ICoalesceInputPlugin: ICoalescePlugin
     {
-        PlugInDetails GetDetails();
+        
         List<SensorDetails> GetSensors();
         List<SensorReadingPackage> GetReadings();
         void Initialise();
@@ -18,15 +18,6 @@ namespace CoalesceInputPlugin
 
         string GetConfig();
         void SetConfig(string config);
-    }
-
-    public class PlugInDetails
-    {
-        public Guid Id { get; set; }
-        public string ShortName { get; set; }
-        public string Author { get; set; }
-        public string SupportLink { get; set; }
-        public double Version { get; set; }
     }
 
     public class SensorDetails

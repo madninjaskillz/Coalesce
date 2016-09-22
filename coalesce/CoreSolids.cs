@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using CoalesceInputPlugin;
+using CoalesceOutputPlugin;
+using CoalesceTypes;
 
 namespace coalesce
 {
@@ -14,35 +14,45 @@ namespace coalesce
     {
         public class PluginDetails
         {
-        public Guid Id { get; set; }    
+            public Guid Id { get; set; }
             public string Name { get; set; }
             public Type Type { get; set; }
             public string Author { get; set; }
         }
 
-        private static string execPath=> System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+        private static string execPath => System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
         public static List<PluginDetails> InputPlugins { get; set; } = new List<PluginDetails>();
+        public static List<PluginDetails> OutputPlugins { get; set; } = new List<PluginDetails>();
 
         public static void UpdateInputPlugs()
         {
-            InputPlugins.Clear();
-            List<string> files = Directory.GetFiles("Plugins\\Inputs\\", "*.dll").ToList();
+            InputPlugins = LoadPlugins<ICoalesceInputPlugin>("Inputs");
+            OutputPlugins = LoadPlugins<ICoalesceOutputPlugin>("Outputs");
 
+
+            Debug.WriteLine(InputPlugins.Count + " input plugins loaded");
+        }
+
+
+        public static List<PluginDetails> LoadPlugins<T>(string path)
+        {
+            var files = Directory.GetFiles($"Plugins\\{path}\\", "*.dll").ToList();
+            var plugins = new List<PluginDetails>();
             foreach (string file in files)
             {
-                Assembly assembly = Assembly.LoadFrom(execPath+"\\"+file);
+                Assembly assembly = Assembly.LoadFrom(execPath + "\\" + file);
 
                 var types = assembly.GetExportedTypes();
 
                 foreach (Type type in types)
                 {
                     Debug.WriteLine(type);
-                    if (typeof(ICoalesceInputPlugin).IsAssignableFrom(type))
+                    if (typeof(T).IsAssignableFrom(type))
                     {
-                        var instance = (ICoalesceInputPlugin) Activator.CreateInstance(type);
-                        var details = instance.GetDetails();
+                        ICoalescePlugin instance = (ICoalescePlugin)Activator.CreateInstance(type);
+                        CoalescePlugInDetails details = instance.GetDetails();
 
-                        InputPlugins.Add(new PluginDetails()
+                        plugins.Add(new PluginDetails()
                         {
                             Id = details.Id,
                             Name = details.ShortName,
@@ -53,7 +63,19 @@ namespace coalesce
                 }
             }
 
-            Debug.WriteLine(InputPlugins.Count+" input plugins loaded");
+            return plugins;
         }
+
+
     }
+
+  
 }
+
+
+
+
+
+
+
+ 

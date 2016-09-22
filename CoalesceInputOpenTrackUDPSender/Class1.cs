@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CoalesceInputPlugin;
+using CoalesceTypes;
 
 namespace CoalesceInputOpenTrackUDPSender
 {
     public class Class1 : ICoalesceInputPlugin
     {
-        public PlugInDetails GetDetails()
+        public CoalescePlugInDetails GetDetails()
         {
-            return new PlugInDetails
+            return new CoalescePlugInDetails
             {
                 Author = "James Johnston",
                 Id = Guid.Parse("0a72e481-6976-48e8-94d8-28b1e3bb6f83"),

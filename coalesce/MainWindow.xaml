@@ -13,8 +13,8 @@
                 <Label x:Name="label" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 <Button HorizontalAlignment="Right" Click="Button_Click_4" Opacity="50">>>></Button>
             </Grid>
-            
-            
+
+
         </DataTemplate>
         <DataTemplate x:Key="DataTemplate2">
             <Grid>
@@ -41,6 +41,103 @@
                 </StackPanel>
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="DataTemplate4">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Width="24" Style="{DynamicResource CheckBoxStyle1}"></CheckBox>
+                    <Button Click="Button_Click_2" Width="24" Height="24" Content="?"/>
+                    <Label x:Name="label" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#FF707070"/>
+        <Style x:Key="OptionMarkFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="14,0,0,0" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Background" Color="#FFF3F9FF"/>
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Border" Color="#FF5593FF"/>
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Glyph" Color="#FF212121"/>
+        <SolidColorBrush x:Key="OptionMark.Disabled.Background" Color="#FFE6E6E6"/>
+        <SolidColorBrush x:Key="OptionMark.Disabled.Border" Color="#FFBCBCBC"/>
+        <SolidColorBrush x:Key="OptionMark.Disabled.Glyph" Color="#FF707070"/>
+        <SolidColorBrush x:Key="OptionMark.Pressed.Background" Color="#FFD9ECFF"/>
+        <SolidColorBrush x:Key="OptionMark.Pressed.Border" Color="#FF3C77DD"/>
+        <SolidColorBrush x:Key="OptionMark.Pressed.Glyph" Color="#FF212121"/>
+        <SolidColorBrush x:Key="OptionMark.Static.Glyph" Color="#FF212121"/>
+        <Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource OptionMark.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource OptionMark.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True" Width="28" Margin="-2,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="checkBoxBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Width="24" Height="24">
+                                <Grid x:Name="markGrid">
+                                    <Path x:Name="optionMark" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Fill="{StaticResource OptionMark.Static.Glyph}" Margin="1" Opacity="0" Stretch="None"/>
+                                    <Rectangle x:Name="indeterminateMark" Fill="{StaticResource OptionMark.Static.Glyph}" Margin="2" Opacity="0"/>
+                                </Grid>
+                            </Border>
+                            <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasContent" Value="true">
+                                <Setter Property="FocusVisualStyle" Value="{StaticResource OptionMarkFocusVisual}"/>
+                                <Setter Property="Padding" Value="4,-1,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.MouseOver.Border}"/>
+                                <Setter Property="Fill" TargetName="optionMark" Value="{StaticResource OptionMark.MouseOver.Glyph}"/>
+                                <Setter Property="Fill" TargetName="indeterminateMark" Value="{StaticResource OptionMark.MouseOver.Glyph}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.Disabled.Border}"/>
+                                <Setter Property="Fill" TargetName="optionMark" Value="{StaticResource OptionMark.Disabled.Glyph}"/>
+                                <Setter Property="Fill" TargetName="indeterminateMark" Value="{StaticResource OptionMark.Disabled.Glyph}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.Pressed.Border}"/>
+                                <Setter Property="Fill" TargetName="optionMark" Value="{StaticResource OptionMark.Pressed.Glyph}"/>
+                                <Setter Property="Fill" TargetName="indeterminateMark" Value="{StaticResource OptionMark.Pressed.Glyph}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter Property="Opacity" TargetName="optionMark" Value="1"/>
+                                <Setter Property="Opacity" TargetName="indeterminateMark" Value="0"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="{x:Null}">
+                                <Setter Property="Opacity" TargetName="optionMark" Value="0"/>
+                                <Setter Property="Opacity" TargetName="indeterminateMark" Value="1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Window.DataContext>
         <MainWindow:MainWindowViewModel/>
@@ -48,13 +145,13 @@
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
             <StackPanel Orientation="Horizontal"  Margin="20,20,0,20">
-                <Grid>
+                <Grid Width="250">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Border Grid.Row="0" Background="#FFB092FF" Padding="0" CornerRadius="15,15,0,0" BorderBrush="Black" BorderThickness="1" Margin="0,10,0,0">
-                        <Label FontWeight="Light" FontSize="24">Available Input Plugins</Label>
+                        <Label FontWeight="Light" FontSize="24">Available Inputs</Label>
                     </Border>
 
                     <Border Grid.Row="1" Background="#FFD6D6D6" Padding="10" CornerRadius="0,0,15,15" BorderBrush="Black" BorderThickness="1,0,1,1">
@@ -64,7 +161,7 @@
                     </Border>
                 </Grid>
 
-                <Grid Margin="10,0" >
+                <Grid Margin="10,0" Width="200">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition/>
@@ -72,7 +169,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Border Grid.Row="0" Background="#FFB092FF" Padding="0" CornerRadius="15,15,0,0" BorderBrush="Black" BorderThickness="1" Margin="0,10,0,0">
-                        <Label FontWeight="Light" FontSize="24">Active Input Plugins</Label>
+                        <Label FontWeight="Light" FontSize="24">Active Inputs</Label>
                     </Border>
 
                     <Border Grid.Row="1" Background="#FFD6D6D6" Padding="10" CornerRadius="0,0,15,15" BorderBrush="Black" BorderThickness="1,0,1,1">
@@ -104,25 +201,25 @@
                         <Grid Grid.Row="1" Width="332" Height="543" >
 
                             <Image Source="UI/Assets/figure.png" Opacity="0.25" Margin="30,0"></Image>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="160,19,0,0" >Head       </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="159,72,0,0" >Neck       </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="160,19,0,0" >Head</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="159,72,0,0" >Neck</RadioButton>
                             <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="108,103,0,0">Shoulder(R)</RadioButton>
                             <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="204,103,0,0">Shoulder(L)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="96,183,0,0" >Elbow(R)   </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="228,183,0,0">Elbow(L)   </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="77,241,0,0" >Wrist(R)   </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="251,241,0,0">Wrist(L)   </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="62,267,0,0" >Hand(R)    </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="264,267,0,0">Hand(L)    </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="159,258,0,0">Spine      </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="126,275,0,0">Hip(R)     </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="189,275,0,0">Hip(L)     </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="126,375,0,0">Knee(R)    </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="189,375,0,0">Knee(L)    </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="116,495,0,0">Ankle(R)   </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="195,495,0,0">Ankle(L)   </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="109,515,0,0">Foot(R)    </RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="201,515,0,0">Foot(L)    </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="96,183,0,0" >Elbow(R)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="228,183,0,0">Elbow(L)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="77,241,0,0" >Wrist(R)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="251,241,0,0">Wrist(L)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="62,267,0,0" >Hand(R)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="264,267,0,0">Hand(L)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="159,258,0,0">Spine</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="126,275,0,0">Hip(R)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="189,275,0,0">Hip(L)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="126,375,0,0">Knee(R)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="189,375,0,0">Knee(L)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="116,495,0,0">Ankle(R)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="195,495,0,0">Ankle(L)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="109,515,0,0">Foot(R)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="201,515,0,0">Foot(L)</RadioButton>
                         </Grid>
                     </Border>
                 </Grid>
@@ -144,7 +241,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button Width="24" Height="24" Click="Button_Click_3">+</Button>
                                 <TextBlock Padding="10,0,0,0" VerticalAlignment="Center" Text="{Binding CurrentSelectedJointPlugin}"></TextBlock>
-                                <TextBlock Padding="10,0,0,0" VerticalAlignment="Center" > / </TextBlock>
+                                <TextBlock Padding="10,0,0,0" VerticalAlignment="Center" > /</TextBlock>
                                 <TextBlock Padding="10,0,0,0" VerticalAlignment="Center" Text="{Binding CurrentSelectedJointSensor}"></TextBlock>
                             </StackPanel>
                             <TextBlock Padding="0,20,0,0" VerticalAlignment="Center">Raw</TextBlock>
@@ -218,6 +315,56 @@
                     </Border>
 
                 </Grid>
+                <!--
+                        <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Background="#FFB092FF" Padding="0" CornerRadius="15,15,0,0" BorderBrush="Black" BorderThickness="1" Margin="0,10,0,0">
+                        <Label FontWeight="Light" FontSize="24">Available Input Plugins</Label>
+                    </Border>
+
+                    <Border Grid.Row="1" Background="#FFD6D6D6" Padding="10" CornerRadius="0,0,15,15" BorderBrush="Black" BorderThickness="1,0,1,1">
+
+
+                        <ListBox x:Name="AvailableOutputPluginsListBox" ItemTemplate="{DynamicResource DataTemplate1}" ItemsSource="{Binding InputPlugins}" SelectedItem="{Binding SelectedInputPlugin}" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged"/>
+                    </Border>
+                </Grid>
+-->
+
+
+
+
+
+                <Grid Margin="10,0" Width="250">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="2" Background="#FFB092FF" Padding="0" CornerRadius="15,15,0,0" BorderBrush="Black" BorderThickness="1" Margin="0,10,0,0">
+                        <Label FontWeight="Light" FontSize="24">Active Outputs</Label>
+                    </Border>
+
+                    <Border Grid.Row="3" Background="#FFD6D6D6" Padding="10" CornerRadius="0,0,15,15" BorderBrush="Black" BorderThickness="1,0,1,1">
+
+                        <ListBox ItemTemplate="{DynamicResource DataTemplate4}" ItemsSource="{Binding AddedOutputPlugins}" Grid.Row="1" x:Name="ActiveOutputs" SelectedItem="{Binding SelectedAddedOutputPlugin}"/>
+                    </Border>
+
+                    <Border Grid.Row="0" Background="#FFB092FF" Padding="0" CornerRadius="15,15,0,0" BorderBrush="Black" BorderThickness="1" Margin="0,10,0,0">
+                        <Label FontWeight="Light" FontSize="24">Available Outputs</Label>
+                    </Border>
+
+                    <Border Grid.Row="1" Background="#FFD6D6D6" Padding="10" CornerRadius="0,0,15,15" BorderBrush="Black" BorderThickness="1,0,1,1">
+
+
+                        <ListBox x:Name="AvailableOutputPluginsListBox" ItemTemplate="{DynamicResource DataTemplate1}" ItemsSource="{Binding OutputPlugins}" SelectedItem="{Binding SelectedOutputPlugin}" Grid.Row="1" SelectionChanged="ListBox_OutputSelectionChanged"/>
+                    </Border>
+                </Grid>
+
+
 
             </StackPanel>
         </ScrollViewer>
