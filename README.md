@@ -16,7 +16,8 @@ Once Coalesce is fully supported it would allow you to add a Sony Move plugin, a
 
 #What Coalesce is not:
 * Coalesce isn't anything more than sensor combining. 
-* It's not designed to stream VR content to a phone, its not a replacement for OSVR (more of a bridge/companion for OSVR)
+* It's not designed to stream VR content to a phone.
+* It's not a replacement for OSVR (more of a bridge/companion for OSVR)
 
 #Developing Plugins:
 More info coming soon...
