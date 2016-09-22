@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Media;
 using coalesce;
 using CoalesceInputPlugin;
+using CoalesceTypes;
 using Microsoft.Kinect;
 
 namespace CoalesceInputKinectV1
@@ -148,6 +149,16 @@ namespace CoalesceInputKinectV1
             kinectMonitor.Show();
             kinectMonitor.Width = 680;
             kinectMonitor.Height = 540;
+        }
+
+        public string GetConfig()
+        {
+            return "noConfig";
+        }
+
+        public void SetConfig(string config)
+        {
+            
         }
     }
 }

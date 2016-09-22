@@ -126,6 +126,14 @@
       <Project>{487f74a6-343b-4e95-a037-33c206b1f4b1}</Project>
       <Name>CoalesceInputPlugin</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CoalesceModifierPlugIn\CoalesceModifierPlugIn.csproj">
+      <Project>{8A19F1A8-E2A7-466B-8587-4144E758673C}</Project>
+      <Name>CoalesceModifierPlugIn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CoalesceTypes\CoalesceTypes.csproj">
+      <Project>{82E36CD5-BBF2-46AB-A44B-B9569EDA04E0}</Project>
+      <Name>CoalesceTypes</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

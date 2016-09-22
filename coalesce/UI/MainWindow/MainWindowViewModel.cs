@@ -7,6 +7,8 @@ using System.Threading;
 using System.Timers;
 using System.Windows.Threading;
 using CoalesceInputPlugin;
+using CoalesceModifierPlugIn;
+using CoalesceTypes;
 using Timer = System.Timers.Timer;
 
 namespace coalesce.UI.MainWindow
@@ -217,21 +219,21 @@ namespace coalesce.UI.MainWindow
         }
 
 
-        public Dictionary<DestinationJoints, Assignment> Assignments = new Dictionary<DestinationJoints, Assignment>();
+        public Dictionary<BodyJoints, Assignment> Assignments = new Dictionary<BodyJoints, Assignment>();
 
         public class Assignment
         {
             public string SensorKey { get; set; }
             public string SensorName { get; set; }
             public string PluginName { get; set; }
-            public List<IModifier> Modifiers { get; set; }
+            public List<ICoalesceModifierPlugIn> Modifiers { get; set; }
             public Guid PluginId { get; set; }
             public Guid PluginInstance { get; set; }
             public int SensorId { get; set; }
             public PlugInDetails PluginDetails { get; set; }
         }
 
-        public void Assign(DestinationJoints destJoint)
+        public void Assign(BodyJoints destJoint)
         {
             selectedJoint = destJoint;
 
@@ -259,7 +261,7 @@ namespace coalesce.UI.MainWindow
             }
         }
 
-        private DestinationJoints selectedJoint;
+        private BodyJoints selectedJoint;
 
         public void BindPosition()
         {

@@ -22,6 +22,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoalesceInputKinectV2", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoalesceInputOpenTrackUDPSender", "CoalesceInputOpenTrackUDPSender\CoalesceInputOpenTrackUDPSender.csproj", "{35E7720E-AA0B-4C79-8C53-0FB0D3028D08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoalesceOutputPlugin", "CoalesceOutputPlugin\CoalesceOutputPlugin.csproj", "{77586ACA-7586-4BFE-925F-BE3A81FA4CFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoalesceModifierPlugIn", "CoalesceModifierPlugIn\CoalesceModifierPlugIn.csproj", "{8A19F1A8-E2A7-466B-8587-4144E758673C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoalesceTypes", "CoalesceTypes\CoalesceTypes.csproj", "{82E36CD5-BBF2-46AB-A44B-B9569EDA04E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +54,18 @@ Global
 		{35E7720E-AA0B-4C79-8C53-0FB0D3028D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35E7720E-AA0B-4C79-8C53-0FB0D3028D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35E7720E-AA0B-4C79-8C53-0FB0D3028D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77586ACA-7586-4BFE-925F-BE3A81FA4CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77586ACA-7586-4BFE-925F-BE3A81FA4CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77586ACA-7586-4BFE-925F-BE3A81FA4CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77586ACA-7586-4BFE-925F-BE3A81FA4CFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A19F1A8-E2A7-466B-8587-4144E758673C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A19F1A8-E2A7-466B-8587-4144E758673C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A19F1A8-E2A7-466B-8587-4144E758673C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A19F1A8-E2A7-466B-8587-4144E758673C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E36CD5-BBF2-46AB-A44B-B9569EDA04E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E36CD5-BBF2-46AB-A44B-B9569EDA04E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E36CD5-BBF2-46AB-A44B-B9569EDA04E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E36CD5-BBF2-46AB-A44B-B9569EDA04E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

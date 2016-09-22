@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using coalesce.UI.MainWindow;
 using CoalesceInputPlugin;
+using CoalesceTypes;
 
 namespace coalesce
 {
@@ -102,7 +103,7 @@ Version: {t.Version}";
             Debug.WriteLine(selectedDestJoin);
             string t = selectedDestJoin.Replace("(", "_").Replace(")", "");
 
-            DestinationJoints petType = (DestinationJoints)Enum.Parse(typeof(DestinationJoints), t);
+            BodyJoints petType = (BodyJoints)Enum.Parse(typeof(BodyJoints), t);
             
             ((MainWindowViewModel)this.DataContext).Assign(petType);
         }

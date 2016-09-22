@@ -104,24 +104,24 @@
                         <Grid Grid.Row="1" Width="332" Height="543" >
 
                             <Image Source="UI/Assets/figure.png" Opacity="0.25" Margin="30,0"></Image>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="160,19,0,0">Head</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="159,72,0,0">Neck</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="160,19,0,0" >Head       </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="159,72,0,0" >Neck       </RadioButton>
                             <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="108,103,0,0">Shoulder(R)</RadioButton>
                             <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="204,103,0,0">Shoulder(L)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="96,183,0,0">Elbow(R)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="228,183,0,0">Elbow(L)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="77,241,0,0">Wrist(R)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="251,241,0,0">Wrist(L)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="62,267,0,0">Hand(R)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="264,267,0,0">Hand(L)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="159,258,0,0">Spine</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="126,275,0,0">Hip(R)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="189,275,0,0">Hip(L)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="126,375,0,0">Knee(R)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="189,375,0,0">Knee(L)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="116,495,0,0">Ankle(R)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="195,495,0,0">Ankle(L)</RadioButton>
-                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="109,515,0,0">Foot(R)</RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="96,183,0,0" >Elbow(R)   </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="228,183,0,0">Elbow(L)   </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="77,241,0,0" >Wrist(R)   </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="251,241,0,0">Wrist(L)   </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="62,267,0,0" >Hand(R)    </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="264,267,0,0">Hand(L)    </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="159,258,0,0">Spine      </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="126,275,0,0">Hip(R)     </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="189,275,0,0">Hip(L)     </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="126,375,0,0">Knee(R)    </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="189,375,0,0">Knee(L)    </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="116,495,0,0">Ankle(R)   </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="195,495,0,0">Ankle(L)   </RadioButton>
+                            <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="109,515,0,0">Foot(R)    </RadioButton>
                             <RadioButton HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButton_Checked" GroupName="PointSelection" Margin="201,515,0,0">Foot(L)    </RadioButton>
                         </Grid>
                     </Border>

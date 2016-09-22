@@ -59,6 +59,10 @@
       <Project>{487F74A6-343B-4E95-A037-33C206B1F4B1}</Project>
       <Name>CoalesceInputPlugin</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CoalesceTypes\CoalesceTypes.csproj">
+      <Project>{82E36CD5-BBF2-46AB-A44B-B9569EDA04E0}</Project>
+      <Name>CoalesceTypes</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="KinectMonitor.xaml">

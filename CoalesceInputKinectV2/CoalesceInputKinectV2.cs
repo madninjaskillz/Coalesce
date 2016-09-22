@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using coalesce;
 using CoalesceInputPlugin;
+using CoalesceTypes;
 using LightBuzz.Vitruvius;
 using Microsoft.Kinect;
 
@@ -155,6 +156,16 @@ namespace CoalesceInputKinectV2
          
 
             monitor.Show();
+        }
+
+        public string GetConfig()
+        {
+            return "noConfig";
+        }
+
+        public void SetConfig(string config)
+        {
+
         }
     }
 }

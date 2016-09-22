@@ -55,5 +55,15 @@ namespace CoalesceInputOpenTrackUDPSender
         {
             //TODO
         }
+
+        public string GetConfig()
+        {
+            return "noConfig";
+        }
+
+        public void SetConfig(string config)
+        {
+            //TODO
+        }
     }
 }

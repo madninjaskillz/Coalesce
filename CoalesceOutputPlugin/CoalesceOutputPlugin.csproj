@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{28E245B0-86DD-488B-A00F-702F8F6BF19E}</ProjectGuid>
+    <ProjectGuid>{77586ACA-7586-4BFE-925F-BE3A81FA4CFD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CoalesceInputKinectV1</RootNamespace>
-    <AssemblyName>CoalesceInputKinectV1</AssemblyName>
+    <RootNamespace>CoalesceOutputPlugin</RootNamespace>
+    <AssemblyName>CoalesceOutputPlugin</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\Plugins\Inputs\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,42 +30,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Kinect, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoalesceInputKinectV1.cs" />
-    <Compile Include="KinectMonitor.xaml.cs">
-      <DependentUpon>KinectMonitor.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ICoalesceOutputPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoalesceInputPlugin\CoalesceInputPlugin.csproj">
-      <Project>{487F74A6-343B-4E95-A037-33C206B1F4B1}</Project>
-      <Name>CoalesceInputPlugin</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CoalesceTypes\CoalesceTypes.csproj">
       <Project>{82E36CD5-BBF2-46AB-A44B-B9569EDA04E0}</Project>
       <Name>CoalesceTypes</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="KinectMonitor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
